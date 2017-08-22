@@ -26,7 +26,7 @@ For ED25519 the library depends on [net.i2p.crypto.eddsa](https://github.com/str
 ### Step 1: Clone repo
 
 ``` sh
-git clone https://github.com/interledger/java-crypto-conditions
+git clone https://github.com/bodia/java-crypto-conditions.git
 
 cd java-crypto-conditions
 ```
@@ -35,13 +35,13 @@ cd java-crypto-conditions
 
 #### Gradle:
 ``` 
-gradle clean install [check]
+gradle clean install
 
 ```
 
 #### Maven: 
 ``` 
-mvn clean install [checkstyle:check]
+mvn clean install -Dmaven.test.skip=true
 
 ```
 
