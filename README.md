@@ -1,4 +1,4 @@
-# Java Crypto-Conditions [![gitter][gitter-image]][gitter-url]
+# Java Crypto-Conditions for Android [![gitter][gitter-image]][gitter-url]
 
 [gitter-image]: https://badges.gitter.im/interledger/java-crypto-conditions.svg
 [gitter-url]: https://gitter.im/interledger/java-crypto-conditions
@@ -6,6 +6,10 @@
 Java implementation of Crypto-Conditions (See [RFC](https://datatracker.ietf.org/doc/draft-thomas-crypto-conditions/)).
 
 v2.0 implements the latest RFC (draft-02)
+
+**EDIT**: this version is specifically suited to be used on Android. It differs from the original version in two aspects:
+1. Retrolabmda is used to compile the code for Java 7 which is much better supported on Android
+2. java.util.Base64 (available only on Java 1.8+) replaced with Apache Codec version
 
 ## Dependencies
 
@@ -15,6 +19,7 @@ For RSA any provider that supports **SHA256withRSA/PSS** signatures can be used.
 
 For ED25519 the library depends on [net.i2p.crypto.eddsa](https://github.com/str4d/ed25519-java). As there are no standard interfaces in the `java.security` namespace for EdDSA keys the library is included as a dependancy. Future versions will hopefully remove this dependency.
 
+**EDIT**: Version for Android also depends on [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/index.html) 
  
 ## Usage
 
