@@ -3,7 +3,7 @@ package org.interledger.cryptoconditions.uri;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
-import java.util.Base64;
+
 import java.util.EnumSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.commons.codec.binary.Base64;
 
 import org.interledger.cryptoconditions.Condition;
 import org.interledger.cryptoconditions.ConditionType;
@@ -78,7 +80,7 @@ public class CryptoConditionUri {
       throw new URIEncodingException("No or invalid cost provided");
     }
     
-    byte[] fingerprint = Base64.getUrlDecoder().decode(m.group(2));
+    byte[] fingerprint = Base64.decodeBase64(m.group(2));
     
     EnumSet<ConditionType> subtypes = null;
     if (type == ConditionType.PREFIX_SHA256 || type == ConditionType.THRESHOLD_SHA256) {

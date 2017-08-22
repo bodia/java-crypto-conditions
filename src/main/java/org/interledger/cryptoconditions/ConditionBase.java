@@ -6,7 +6,7 @@ import java.io.UncheckedIOException;
 import java.math.BigInteger;
 import java.net.URI;
 import java.util.Arrays;
-import java.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 import org.interledger.cryptoconditions.der.DEROutputStream;
 import org.interledger.cryptoconditions.der.DERTags;
@@ -97,7 +97,7 @@ public abstract class ConditionBase implements Condition {
       
       StringBuilder sb = new StringBuilder();
       sb.append("ni:///").append("sha-256;")
-          .append(Base64.getUrlEncoder().withoutPadding().encodeToString(getFingerprint()))
+          .append(Base64.encodeBase64URLSafeString(getFingerprint()))
           .append("?").append("fpt=").append(getType().toString().toLowerCase()).append("&cost=")
           .append(getCost());
 
